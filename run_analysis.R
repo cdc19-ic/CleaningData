@@ -21,7 +21,7 @@ colnames(y_test)<-"activityId"
 #We can now merge these three files by adding the test subjId and actId columns to the X_test table:
 test<-cbind(subject_test, y_test, X_test)
 
-#Retrieve tge train element and assign column names (note that the names of the X_train file are the features):
+#Retrieve the train element and assign column names (note that the names of the X_train file are the features):
 subject_train<-read.table("UCI HAR Dataset/train/subject_train.txt")
 X_train<-read.table("UCI HAR Dataset/train/X_train.txt")
 y_train<-read.table("UCI HAR Dataset/train/y_train.txt") 
@@ -53,6 +53,7 @@ names(new_data2) <- gsub("^f", "frequency", names(new_data2))
 names(new_data2) <- gsub("Acc", "acceleration", names(new_data2))
 names(new_data2) <- gsub("Freq", "frequency", names(new_data2))
 names(new_data2) <- gsub("Mag", "magnitude", names(new_data2))
+names(new_data2) <- gsub("Gyro", "gyroscope", names(new_data2))
 names(new_data2) <- gsub("BodyBody", "body", names(new_data2))
 names(new_data2) <- gsub("-", "", names(new_data2))
 #Finally, according to Leek's course video, all the variable names should be lower case:
